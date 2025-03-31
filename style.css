@@ -57,11 +57,17 @@ header {
     display: flex;
     justify-content: center;
     height: 80vh;
-    background-color: var(--main-background-color);
+    background-color: var(--main-background-color);    
 }
 
 #main_content {
     background-color: var(--main-content-background-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    overflow: auto;
 }
 
 footer {
