@@ -1,5 +1,10 @@
+const mainContent = document.getElementById('main_content');
 const BASE_URL = "https://pokeapi.co/api/v2/pokemon/";
 const currentPokemon = [];
+
+function showLoadingSpinner() {
+    mainContent.innerHTML = createLoadingSpinner();
+}
 
 async function fetchData(path="") {
     let response = await fetch(BASE_URL + path);
@@ -19,7 +24,7 @@ async function loadPokemonData() {
 }
 
 function renderPokemon() {
-    const mainContent = document.getElementById('main_content');
+    mainContent.innerHTML = "";
     currentPokemon.forEach(pokemon => {
         const pokemonCard = createPokemonCard(pokemon);
         mainContent.innerHTML += pokemonCard;
@@ -27,6 +32,7 @@ function renderPokemon() {
 }
 
 async function init() {
+    showLoadingSpinner()
     await loadPokemonData();
     renderPokemon();
 }

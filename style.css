@@ -13,6 +13,11 @@
     max-width: 1440px;
 }
 
+.padding_top_and_bottom_16px {
+    padding: 16px 0;
+    background-color: var(--main-content-background-color);
+}
+
 .display_flex {
     display: flex;
     justify-content: center;
@@ -57,7 +62,7 @@ header {
     display: flex;
     justify-content: center;
     height: 80vh;
-    background-color: var(--main-background-color);    
+    background-color: var(--main-background-color);   
 }
 
 #main_content {
@@ -68,6 +73,7 @@ header {
     flex-wrap: wrap;
     gap: 8px;
     overflow: auto;
+    padding: 16px 0;
 }
 
 footer {
