@@ -1,6 +1,8 @@
 const mainContent = document.getElementById('main_content');
 const BASE_URL = "https://pokeapi.co/api/v2/pokemon/";
 const currentPokemon = [];
+let currentOffset = 0;
+const LIMIT = 20;
 
 function showLoadingSpinner() {
     mainContent.innerHTML = createLoadingSpinner();
@@ -13,7 +15,8 @@ async function fetchData(path="") {
   
 async function loadPokemonData() {
     try {
-        const data = await fetchData();
+        const data = await fetchData(`?limit=${LIMIT}&offset=${currentOffset}`);
+        currentPokemon.length = 0;
         for (let pokemon of data.results) {
             const pokemonData = await fetchData(pokemon.name);
             currentPokemon.push(pokemonData);

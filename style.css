@@ -75,6 +75,7 @@ header {
     gap: 16px;
     overflow: auto;
     height: calc(100% - 36px);
+    width: 100%;
 }
 
 footer {
