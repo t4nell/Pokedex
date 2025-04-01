@@ -1,6 +1,7 @@
 :root {
     --header-and-footer-background-color: #3B4CCA;
     --main-content-background-color: #2C3539;
+    --main-content-padding-color: #1e1e1f;
     --main-background-color: #E3350D;
     --button-color: #78C850;
     --button-hover-color: #A33EA1;
@@ -13,9 +14,9 @@
     max-width: 1440px;
 }
 
-.padding_top_and_bottom_16px {
-    padding: 16px 0;
-    background-color: var(--main-content-background-color);
+.padding_16px {
+    padding: 16px;
+    background-color: var(--main-content-padding-color);
 }
 
 .display_flex {
@@ -43,7 +44,7 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 10vh;
+    height: 100px;
     background-color: var(--header-and-footer-background-color);
 }
 .header_main_container {
@@ -61,7 +62,7 @@ header {
 .main_content {
     display: flex;
     justify-content: center;
-    height: 80vh;
+    height: calc(100vh - 200px);
     background-color: var(--main-background-color);   
 }
 
@@ -71,16 +72,15 @@ header {
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    gap: 8px;
+    gap: 16px;
     overflow: auto;
-    padding: 16px 0;
 }
 
 footer {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 10vh;
+    height: 100px;
     background-color: var(--header-and-footer-background-color);
 }
 
