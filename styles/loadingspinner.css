@@ -1,3 +1,10 @@
+:root {
+    --pokeball-primary-color: #E3350D;
+    --pokeball-secondary-color: #2C3539;
+    --pokeball-white: #fff;
+    --pokeball-shadow: rgba(0,0,0,0.5);
+}
+
 .loading_spinner {
     display: flex;
     justify-content: center;
@@ -16,9 +23,17 @@
 }
 
 .pokeball_outer {
-    filter: drop-shadow(0 0 5px rgba(0,0,0,0.3));
+    fill: var(--pokeball-primary-color);
+    filter: drop-shadow(0 0 5px var(--pokeball-shadow));
 }
 
 .pokeball_middle {
+    stroke: var(--pokeball-secondary-color);
+    fill: var(--pokeball-white);
     stroke-linecap: round;
+}
+
+.pokeball_button {
+    fill: var(--pokeball-secondary-color);
+    stroke: var(--pokeball-white);
 }
