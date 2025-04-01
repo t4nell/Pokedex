@@ -21,6 +21,15 @@ function createPokemonCard(pokemon) {
     `;
 }
 
+function createButtons() {
+    return `
+        <div>
+            <button>Back</button>
+            <button>Next</button>
+        </div>
+    `
+}
+
 function createLoadingSpinner() {
     return `
         <div class="loading_spinner">

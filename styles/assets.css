@@ -20,3 +20,11 @@ input {
     height: 50px;
     border-radius: 8px;
 }
+
+.button_container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: var(--main-content-background-color);
+    padding: 8px 0;
+}

@@ -59,7 +59,7 @@ header {
     border-radius: 8px;
 }
 
-.main_content {
+.main_section {
     display: flex;
     justify-content: center;
     height: calc(100vh - 200px);
@@ -74,6 +74,7 @@ header {
     flex-wrap: wrap;
     gap: 16px;
     overflow: auto;
+    height: calc(100% - 36px);
 }
 
 footer {
