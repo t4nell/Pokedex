@@ -1,8 +1,9 @@
 const mainContent = document.getElementById('main_content');
 const BASE_URL = "https://pokeapi.co/api/v2/pokemon/";
 const currentPokemon = [];
+const LIMIT = 30;
 let currentOffset = 0;
-const LIMIT = 20;
+
 
 function showLoadingSpinner() {
     mainContent.innerHTML = createLoadingSpinner();

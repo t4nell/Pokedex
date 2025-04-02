@@ -26,6 +26,19 @@
     display: flex;
     flex-direction: column;
     gap: 8px;
+    transition: all 0.3s ease;
+}
+
+.pokemon_card:hover {
+    animation: wiggle 0.5s ease;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+
+@keyframes wiggle {
+    0% { transform: rotate(0deg); }
+    25% { transform: rotate(2deg); }
+    75% { transform: rotate(-2deg); }
+    100% { transform: rotate(0deg); }
 }
 
 .pokemon_image {
@@ -101,4 +114,3 @@
     border-radius: 4px;
     color: white;
 }
-
