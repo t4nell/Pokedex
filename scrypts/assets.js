@@ -1,5 +1,6 @@
 const searchInput = document.getElementById('search_input');
-
+const backButton = document.getElementById('back_button');
+const nextButton = document.getElementById('next_button');
 async function loadNextPokemon() {
     currentOffset += LIMIT;
     showLoadingSpinner();
@@ -27,16 +28,18 @@ async function loadFilteredPokemonDetails(filteredPokemon) {
 async function searchPokemon() {
     const searchValue = searchInput.value.toLowerCase();
     if (searchValue) {
+        const data = await fetchData('?limit=2000');
+        backButton.style.display = 'none';
+        nextButton.style.display = 'none';
         showLoadingSpinner();
-        try {
-            const data = await fetchData('?limit=2000');
-            const filteredPokemon = data.results.filter(pokemon => 
-                pokemon.name.startsWith(searchValue)
-            );
-            await loadFilteredPokemonDetails(filteredPokemon);
+        const filteredPokemon = data.results.filter(pokemon => 
+            pokemon.name.startsWith(searchValue)
+        );
+        await loadFilteredPokemonDetails(filteredPokemon);
+        if (currentPokemon.length === 0) {
+            mainContent.innerHTML = `<p>Keine Pokemon mit "${searchValue}" gefunden</p>`;
+        } else {
             renderPokemon();
-        } catch (error) {
-            mainContent.innerHTML = 'Fehler bei der Suche';
         }
         searchInput.value = '';
     }
