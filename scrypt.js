@@ -1,7 +1,7 @@
 const mainContent = document.getElementById('main_content');
 const BASE_URL = "https://pokeapi.co/api/v2/pokemon/";
 const currentPokemon = [];
-const LIMIT = 30;
+const LIMIT = 40;
 let currentOffset = 0;
 
 
@@ -32,6 +32,8 @@ function renderPokemon() {
     currentPokemon.forEach(pokemon => {
         const pokemonCard = createPokemonCard(pokemon);
         mainContent.innerHTML += pokemonCard;
+        backButton.style.display = 'block';
+        nextButton.style.display = 'block';
     });
 }
 

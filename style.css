@@ -19,6 +19,10 @@
     background-color: var(--main-content-padding-color);
 }
 
+.min_width_260px {
+    min-width: 260px;
+}
+
 .display_flex {
     display: flex;
     justify-content: center;

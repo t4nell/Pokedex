@@ -2,6 +2,8 @@ const searchInput = document.getElementById('search_input');
 const backButton = document.getElementById('back_button');
 const nextButton = document.getElementById('next_button');
 async function loadNextPokemon() {
+    backButton.style.display = 'none';
+    nextButton.style.display = 'none';
     currentOffset += LIMIT;
     showLoadingSpinner();
     await loadPokemonData();
@@ -11,6 +13,8 @@ async function loadNextPokemon() {
 async function loadPreviousPokemon() {
     if (currentOffset >= LIMIT) {
         currentOffset -= LIMIT;
+        backButton.style.display = 'none';
+        nextButton.style.display = 'none';
         showLoadingSpinner();
         await loadPokemonData();
         renderPokemon();
