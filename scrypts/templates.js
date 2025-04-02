@@ -3,8 +3,8 @@ function createPokemonCard(pokemon) {
     return `
         <div class="pokemon_card">
             <div class="pokemon_image ${mainType}">
-                <img class="pokemon_image_img" src="${pokemon.sprites.front_shiny}" alt="${pokemon.name}">
-                <p>Shiny Version</p>
+                <img class="pokemon_image_img" src="${pokemon.sprites.front_default}" alt="${pokemon.name}">
+                <p>Normale Version</p>
             </div>
             <div class="pokemon_stats">
                 <span>#${pokemon.id.toString().padStart(3, '0')}</span>
