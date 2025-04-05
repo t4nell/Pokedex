@@ -32,9 +32,9 @@ function renderPokemon() {
     currentPokemon.forEach(pokemon => {
         const pokemonCard = createPokemonCard(pokemon);
         mainContent.innerHTML += pokemonCard;
-        backButton.style.display = 'block';
-        nextButton.style.display = 'block';
     });
+    backButton.style.display = 'block';
+    nextButton.style.display = 'block';
 }
 
 async function init() {
