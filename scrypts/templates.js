@@ -1,3 +1,15 @@
+function createLoadingSpinner() {
+    return `
+        <div class="loading_spinner">
+            <svg width="100" height="100" viewBox="0 0 100 100">
+                <circle class="pokeball_outer" cx="50" cy="50" r="45"/>
+                <path class="pokeball_middle" d="M5,50 h90 M50,50 m-10,0 a10,10 0 1,0 20,0 a10,10 0 1,0 -20,0" stroke-width="10"/>
+                <circle class="pokeball_button" cx="50" cy="50" r="8" stroke-width="2"/>
+            </svg>
+        </div>
+    `
+}
+
 function createPokemonCard(pokemon) {
     const mainType = pokemon.types[0].type.name;
     return `
@@ -20,17 +32,9 @@ function createPokemonCard(pokemon) {
     `;
 }
 
-
-function createLoadingSpinner() {
-    return `
-        <div class="loading_spinner">
-            <svg width="100" height="100" viewBox="0 0 100 100">
-                <circle class="pokeball_outer" cx="50" cy="50" r="45"/>
-                <path class="pokeball_middle" d="M5,50 h90 M50,50 m-10,0 a10,10 0 1,0 20,0 a10,10 0 1,0 -20,0" stroke-width="10"/>
-                <circle class="pokeball_button" cx="50" cy="50" r="8" stroke-width="2"/>
-            </svg>
-        </div>
-    `
+function calculateStatPercentage(baseStat) {
+    const MAX_STAT = 255;
+    return (baseStat / MAX_STAT) * 100;
 }
 
 function createPokemonOverlay(pokemon) {
@@ -98,9 +102,4 @@ function createPokemonOverlay(pokemon) {
         </div>
     </div>
     `;
-}
-
-function calculateStatPercentage(baseStat) {
-    const MAX_STAT = 255;
-    return (baseStat / MAX_STAT) * 100;
 }

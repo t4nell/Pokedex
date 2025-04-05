@@ -1,10 +1,11 @@
 const searchInput = document.getElementById('search_input');
+const searchContainer = document.getElementById('search_container');
 const backButton = document.getElementById('back_button');
 const nextButton = document.getElementById('next_button');
+
 async function searchPokemon() {
     const searchValue = searchInput.value.toLowerCase();
-    backButton.style.display = 'none';
-    nextButton.style.display = 'none';
+    searchInput.value = '';
     if (searchValue) {
         const data = await fetchData('?limit=2000');
         showLoadingSpinner();
@@ -17,7 +18,6 @@ async function searchPokemon() {
         } else {
             renderPokemon();
         }
-        searchInput.value = '';
     }
 }
 
@@ -30,8 +30,6 @@ async function loadFilteredPokemonDetails(filteredPokemon) {
 }
 
 async function loadNextPokemon() {
-    backButton.style.display = 'none';
-    nextButton.style.display = 'none';
     currentOffset += LIMIT;
     showLoadingSpinner();
     await loadPokemonData();
@@ -41,14 +39,11 @@ async function loadNextPokemon() {
 async function loadPreviousPokemon() {
     if (currentOffset >= LIMIT) {
         currentOffset -= LIMIT;
-        backButton.style.display = 'none';
-        nextButton.style.display = 'none';
         showLoadingSpinner();
         await loadPokemonData();
         renderPokemon();
     }
 }
-
 
 function showPokemonDetails(pokemon) {
     const overlayContainer = document.getElementById('overlay-container');
@@ -58,4 +53,8 @@ function showPokemonDetails(pokemon) {
 function closeOverlay() {
     const overlayContainer = document.getElementById('overlay-container');
     overlayContainer.innerHTML = '';
+}
+
+function toggleSearch() {
+    searchContainer.classList.toggle('show');
 }

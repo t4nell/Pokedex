@@ -1,3 +1,9 @@
+:root {
+    --button-color: #E3350D;
+    --button-hover-color: #dd5b3d;
+    --search-container-background-color: #3B4CCA;
+}
+
 #search_container {
     display: flex;
     gap: 8px;
@@ -5,17 +11,23 @@
 
 input {
     height: 24px;
-    width: 200px;
+    width: 150px;
     border-radius: 8px;
 }
 
 #search_button {
-    width: 60px;
     height: 28px;
     font-size: 16px;
     text-align: center;
     border-radius: 8px;
+    padding: 0 4px;
+    background-color: var(--button-color);
 }
+
+#search_button:hover {
+    background-color: var(--button-hover-color);
+}
+
 .sozialmedia_link_icon {
     height: 50px;
     border-radius: 8px;
@@ -28,4 +40,63 @@ input {
     align-items: center;
     background-color: var(--main-content-background-color);
     padding: 8px 0;
+}
+
+.button_container button {
+    display: flex;
+    align-items: center;
+    padding: 0 8px;
+    background-color: var(--button-color);
+    color: white;
+    border-radius: 8px;
+}
+
+.button_container button:hover {
+    background-color: var(--button-hover-color);
+}
+
+#back_button::before {
+    content: '←';
+    font-size: 20px;
+}
+
+#next_button::after {
+    content: '→';
+    font-size: 20px;
+}
+
+#search_icon {
+    display: none;
+    cursor: pointer;
+    font-size: 24px;
+    padding: 8px;
+    border-radius: 50%;
+    background-color: var(--button-color);
+    color: white;
+}
+
+@media (max-width: 650px) {
+    #search_container {
+        display: none;
+        position: absolute;
+        top: 80px;
+        right: 32px;
+        background-color: var(--search-container-background-color);
+        padding: 16px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.8);
+        z-index: 1000;
+    }
+
+    #search_container.show {
+        display: flex;
+    }
+
+    #search_icon {
+        display: block;
+    }
+
+    #search_icon:hover {
+        background-color: var(--button-hover-color);
+    }
 }

@@ -3,8 +3,6 @@
     --overlay-content-background-color: white;
     --overlay-stat-bar-background-color:#7e7e7e;
     --overlay-stat-bar-color: green;
-    --button-color: #E3350D;
-    --button-hover-color: #3B4CCA;
     --text-color: white;
 }
 
@@ -100,3 +98,8 @@
     background-color: var(--button-hover-color);
 }
 
+@media (max-width: 470px) {
+    .progress_bar {
+        width: 150px;
+    }
+}

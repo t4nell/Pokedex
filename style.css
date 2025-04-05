@@ -3,8 +3,6 @@
     --main-content-background-color: #2C3539;
     --main-content-padding-color: #1e1e1f;
     --main-background-color: #E3350D;
-    --button-color: #78C850;
-    --button-hover-color: #A33EA1;
     --text-color: #212121;
 }
 
@@ -14,27 +12,23 @@
     max-width: 1440px;
 }
 
+.min_width_260px {
+    min-width: 260px;
+}
+
 .padding_16px {
     padding: 16px;
     background-color: var(--main-content-padding-color);
 }
 
-.min_width_260px {
-    min-width: 260px;
+.margin_right_and_left_32px {
+    margin: 0 32px;
 }
 
 .display_flex {
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-.padding_right_24px {
-    padding-right: 24px;
-}
-
-.padding_left_24px {
-    padding-left: 24px;
 }
 
 body {
@@ -51,6 +45,7 @@ header {
     height: 100px;
     background-color: var(--header-and-footer-background-color);
 }
+
 .header_main_container {
     display: flex;
     justify-content: space-between;
@@ -59,7 +54,7 @@ header {
 
 .logo {
     height: 60px;
-    width: 200px;
+    width: 150px;
     border-radius: 8px;
 }
 
@@ -76,7 +71,6 @@ header {
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    gap: 16px;
     overflow: auto;
     height: calc(100% - 36px);
     width: 100%;

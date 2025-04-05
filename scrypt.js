@@ -4,9 +4,10 @@ const currentPokemon = [];
 const LIMIT = 40;
 let currentOffset = 0;
 
-
 function showLoadingSpinner() {
     mainContent.innerHTML = createLoadingSpinner();
+    backButton.style.display = 'none';
+    nextButton.style.display = 'none';
 }
 
 async function fetchData(path="") {
