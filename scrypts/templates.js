@@ -18,7 +18,7 @@ function createPokemonCard(pokemon) {
                 <img class="pokemon_image_img" src="${pokemon.sprites.front_default}" alt="${pokemon.name}">
             </div>
             <div class="pokemon_stats">
-                <span>#${pokemon.id.toString().padStart(3, '0')}</span>
+                <span>#${pokemon.id}</span>
                 <span>${pokemon.weight/10}kg</span>
                 <span>${pokemon.height/10}m</span>
             </div>
@@ -97,8 +97,12 @@ function createPokemonOverlay(pokemon) {
                     </div>
                 </div>
             </div>
+            <div class="overlay_button_container"> 
+                <button class="overlay_button" onclick="">←</button>
+                <button class="close_button" onclick="closeOverlay()">close overlay</button>
+                <button class="overlay_button" onclick="">→</button>
+            </div>
             
-            <button class="close_button" onclick="closeOverlay()">close overlay</button>
         </div>
     </div>
     `;

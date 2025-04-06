@@ -84,13 +84,33 @@
     transition: width 1s ease;
 }
 
+.overlay_button_container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.overlay_button {
+    display: flex;
+    align-items: center;
+    padding: 4px 16px;
+    background-color: var(--button-color);
+    color: var(--text-color);
+    border-radius: 8px;
+    font-size: 20px;
+}
+
+.overlay_button:hover {
+    background-color: var(--button-hover-color);
+}
+
 .close_button {
-    padding: 8px 16px;
+    font-size: 20px;
+    padding: 4px 16px;
     background-color: var(--button-color);
     border: none;
-    border-radius: 4px;
+    border-radius: 8px;
     color: var(--text-color);
-    cursor: pointer;
     transition: background-color 0.3s ease;
 }
 

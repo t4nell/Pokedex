@@ -45,14 +45,19 @@ input {
 .button_container button {
     display: flex;
     align-items: center;
-    padding: 0 8px;
+    padding: 4px 16px;
     background-color: var(--button-color);
-    color: white;
+    color: var(--text-color);
     border-radius: 8px;
 }
 
 .button_container button:hover {
     background-color: var(--button-hover-color);
+}
+
+.button_container button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
 }
 
 #back_button::before {

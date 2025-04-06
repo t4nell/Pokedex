@@ -1,7 +1,5 @@
 const searchInput = document.getElementById('search_input');
 const searchContainer = document.getElementById('search_container');
-const backButton = document.getElementById('back_button');
-const nextButton = document.getElementById('next_button');
 
 async function searchPokemon() {
     const searchValue = searchInput.value.toLowerCase();
