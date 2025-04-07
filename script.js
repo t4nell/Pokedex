@@ -1,9 +1,7 @@
-const backButton = document.getElementById('back_button');
-const nextButton = document.getElementById('next_button');
 const mainContent = document.getElementById('main_content');
 const BASE_URL = "https://pokeapi.co/api/v2/pokemon/";
-let currentPokemon = [];
 const LIMIT = 40;
+let currentPokemon = [];
 let currentOffset = 0;
 let pokemonCount = 0;
 
@@ -38,21 +36,8 @@ function renderPokemon() {
         const pokemonCard = createPokemonCard(pokemon);
         mainContent.innerHTML += pokemonCard;
     });
-    const currentPage = currentOffset / LIMIT;
-    const totalPages = Math.ceil(pokemonCount / LIMIT);
-    backButton.style.display = 'block';
-    nextButton.style.display = 'block';
-    if (currentPage > 0 ) {
-        backButton.disabled = false; 
-    }else {
-        backButton.disabled = true; 
-    }
-    if (currentPage + 1 < totalPages) {
-        nextButton.disabled = false;            
-    } else {
-        nextButton.disabled = true;
-    }
-    
+    showNavigationButtons();
+    updateNavigationState();
 }
 
 async function init() {

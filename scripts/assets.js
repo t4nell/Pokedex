@@ -1,5 +1,7 @@
 const searchInput = document.getElementById('search_input');
 const searchContainer = document.getElementById('search_container');
+const backButton = document.getElementById('back_button');
+const nextButton = document.getElementById('next_button');
 
 async function searchPokemon() {
     const searchValue = searchInput.value.toLowerCase();
@@ -41,6 +43,18 @@ async function loadPreviousPokemon() {
         await loadPokemonData();
         renderPokemon();
     }
+}
+
+function showNavigationButtons() {
+    backButton.style.display = 'block';
+    nextButton.style.display = 'block';
+}
+
+function updateNavigationState() {
+    const currentPage = currentOffset / LIMIT;
+    const totalPages = Math.ceil(pokemonCount / LIMIT);
+    backButton.disabled = currentPage <= 0;
+    nextButton.disabled = currentPage + 1 >= totalPages;
 }
 
 function showPokemonDetails(pokemon) {
