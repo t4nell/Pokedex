@@ -101,8 +101,7 @@ function createPokemonOverlay(pokemon) {
                 </div>
             </div>
             <div class="overlay_button_container"> 
-                <button class="overlay_button" onclick="showPreviousPokemon(${pokemon.id})" ${isFirst ? 'disabled' : ''}>←</button>
-                <button class="close_button" onclick="closeOverlay()">close overlay</button>
+                <button class="overlay_button" onclick="showPreviousPokemon(${pokemon.id})" ${isFirst ? 'disabled' : ''}>←</button>  
                 <button class="overlay_button" onclick="showNextPokemon(${pokemon.id})" ${isLast ? 'disabled' : ''}>→</button>
             </div>
             

@@ -1,6 +1,5 @@
 const overlayContainer = document.getElementById('overlay-container');
 
-
 function showPokemonDetails(pokemon) {
     overlayContainer.innerHTML = createPokemonOverlay(pokemon);
 }

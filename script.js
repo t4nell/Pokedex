@@ -7,6 +7,12 @@ let pokemonCount = 0;
 let currentPage = 0;
 let totalPages = 0;
 
+async function init() {
+    showLoadingSpinner()
+    await loadPokemonData();
+    renderPokemon();
+    updateNavigationState()
+}
 
 function showLoadingSpinner() {
     mainContent.innerHTML = createLoadingSpinner();
@@ -44,12 +50,3 @@ function renderPokemon() {
     showNavigationButtons();
     updateNavigationState();
 }
-
-async function init() {
-    showLoadingSpinner()
-    await loadPokemonData();
-    renderPokemon();
-    updateNavigationState()
-}
-
-
