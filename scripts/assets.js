@@ -32,9 +32,12 @@ async function performPokemonSearch(searchValue) {
     if (currentPokemon.length === 0) {
         mainContent.innerHTML = `<p>Keine Pokemon mit "${searchValue}" gefunden</p>`;
     } else {
+        currentPage = 0;
+        totalPages = 1;
         renderPokemon();
+        nextButton.disabled = true;
     }
-    nextButton.disabled = true;
+    
 }
 
 async function loadFilteredPokemonDetails(filteredPokemon) {
