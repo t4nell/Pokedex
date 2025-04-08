@@ -14,13 +14,18 @@ function closeOverlay() {
 }
 
 function getCurrentPokemonIndex(pokemonId) {
-    return currentPokemon.findIndex(pokemon => pokemon.id === pokemonId);
+    const currentIndex = currentPokemon.findIndex(pokemon => pokemon.id === pokemonId);
+    return {
+        index: currentIndex,
+        isFirst: currentIndex === 0 && currentPage === 0,
+        isLast: currentIndex === currentPokemon.length - 1 && currentPage + 1 >= totalPages
+    };
 }
 
 async function showPreviousPokemon(currentPokemonId) {
-    const currentIndex = getCurrentPokemonIndex(currentPokemonId);
-    if (currentIndex > 0) {
-        showPokemonDetails(currentPokemon[currentIndex - 1]);
+    const position = getCurrentPokemonIndex(currentPokemonId);
+    if (position.index > 0) {
+        showPokemonDetails(currentPokemon[position.index - 1]);
     } else if (currentPage > 0) {
         currentOffset -= LIMIT;
         await loadPokemonData();
@@ -30,9 +35,9 @@ async function showPreviousPokemon(currentPokemonId) {
 }
 
 async function showNextPokemon(currentPokemonId) {
-    const currentIndex = getCurrentPokemonIndex(currentPokemonId);
-    if (currentIndex < currentPokemon.length - 1) {
-        showPokemonDetails(currentPokemon[currentIndex + 1]);
+    const position = getCurrentPokemonIndex(currentPokemonId);
+    if (position.index < currentPokemon.length - 1) {
+        showPokemonDetails(currentPokemon[position.index + 1]);
     } else if (currentPage + 1 < totalPages) {
         currentOffset += LIMIT;
         await loadPokemonData();

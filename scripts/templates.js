@@ -34,9 +34,7 @@ function createPokemonCard(pokemon) {
 
 function createPokemonOverlay(pokemon) {
     const mainType = pokemon.types[0].type.name;
-    const currentIndex = getCurrentPokemonIndex(pokemon.id);
-    const isFirst = currentIndex === 0 && currentPage === 0;
-    const isLast = currentIndex === currentPokemon.length - 1 && currentPage + 1 >= totalPages;
+    const pokemonPosition = getCurrentPokemonIndex(pokemon.id);
     return `
     <div id="overlay" class="pokemon_overlay" onclick="closeOverlay()">
         <div class="overlay_content ${pokemon.types[0].type.name}" onclick="event.stopPropagation()">
@@ -96,8 +94,8 @@ function createPokemonOverlay(pokemon) {
                 </div>
             </div>
             <div class="overlay_button_container"> 
-                <button class="overlay_button" onclick="showPreviousPokemon(${pokemon.id})" ${isFirst ? 'disabled' : ''}>←</button>  
-                <button class="overlay_button" onclick="showNextPokemon(${pokemon.id})" ${isLast ? 'disabled' : ''}>→</button>
+                <button class="overlay_button" onclick="showPreviousPokemon(${pokemon.id})" ${pokemonPosition.isFirst ? 'disabled' : ''}>←</button>  
+                <button class="overlay_button" onclick="showNextPokemon(${pokemon.id})" ${pokemonPosition.isLast ? 'disabled' : ''}>→</button>
             </div>
             
         </div>
