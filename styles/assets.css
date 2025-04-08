@@ -28,6 +28,16 @@ input {
     background-color: var(--button-hover-color);
 }
 
+#search_icon {
+    display: none;
+    cursor: pointer;
+    font-size: 24px;
+    padding: 8px;
+    border-radius: 50%;
+    background-color: var(--button-color);
+    color: white;
+}
+
 .sozialmedia_link_icon {
     height: 50px;
     border-radius: 8px;
@@ -68,16 +78,6 @@ input {
 #next_button::after {
     content: '→';
     font-size: 20px;
-}
-
-#search_icon {
-    display: none;
-    cursor: pointer;
-    font-size: 24px;
-    padding: 8px;
-    border-radius: 50%;
-    background-color: var(--button-color);
-    color: white;
 }
 
 #pages_container {
