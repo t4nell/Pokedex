@@ -4,6 +4,9 @@ const LIMIT = 40;
 let currentPokemon = [];
 let currentOffset = 0;
 let pokemonCount = 0;
+let currentPage = 0;
+let totalPages = 0;
+
 
 function showLoadingSpinner() {
     mainContent.innerHTML = createLoadingSpinner();
@@ -21,6 +24,8 @@ async function loadPokemonData() {
         const data = await fetchData(`?limit=${LIMIT}&offset=${currentOffset}`);
         currentPokemon = [];
         pokemonCount = data.count;
+        currentPage = currentOffset / LIMIT;
+        totalPages = Math.ceil(pokemonCount / LIMIT);
         for (let pokemon of data.results) {
             const pokemonData = await fetchData(pokemon.name);
             currentPokemon.push(pokemonData);
@@ -44,6 +49,7 @@ async function init() {
     showLoadingSpinner()
     await loadPokemonData();
     renderPokemon();
+    updateNavigationState()
 }
 
 

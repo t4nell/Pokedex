@@ -2,9 +2,14 @@ const searchInput = document.getElementById('search_input');
 const searchContainer = document.getElementById('search_container');
 const backButton = document.getElementById('back_button');
 const nextButton = document.getElementById('next_button');
+const pagesContainer = document.getElementById('pages_container');
 
 async function searchPokemon() {
     const searchValue = searchInput.value.toLowerCase();
+    if (searchValue.length < 3) {
+        alert('Bitte gib mindestens 3 Zeichen ein');
+        return;
+    }
     searchInput.value = '';
     if (searchValue) {
         const data = await fetchData('?limit=2000');
@@ -18,6 +23,7 @@ async function searchPokemon() {
         } else {
             renderPokemon();
         }
+        nextButton.disabled = true;
     }
 }
 
@@ -51,8 +57,11 @@ function showNavigationButtons() {
 }
 
 function updateNavigationState() {
-    const currentPage = currentOffset / LIMIT;
-    const totalPages = Math.ceil(pokemonCount / LIMIT);
     backButton.disabled = currentPage <= 0;
     nextButton.disabled = currentPage + 1 >= totalPages;
+    pagesContainer.innerHTML = `${currentPage + 1} / ${totalPages}`;
+}
+
+function toggleSearch() {
+    searchContainer.classList.toggle('show');
 }

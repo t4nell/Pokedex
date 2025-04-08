@@ -34,7 +34,7 @@
             
             <div id="search_container" class="display_flex">
 
-                <input id="search_input" type="text" placeholder="search">
+                <input id="search_input" type="text" placeholder="search" minlength="3">
                 <button id="search_button" onclick="searchPokemon()">search</button>
 
             </div>
@@ -51,7 +51,7 @@
 
             <div class="button_container">
                 <button id="back_button" onclick="loadPreviousPokemon()" style="display: none;"></button>
-                <span></span>
+                <div id="pages_container"></div>
                 <button id="next_button" onclick="loadNextPokemon()" style="display: none;"></button>
             </div>
 
