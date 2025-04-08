@@ -4,6 +4,11 @@ function showPokemonDetails(pokemon) {
     overlayContainer.innerHTML = createPokemonOverlay(pokemon);
 }
 
+function calculateStatPercentage(baseStat) {
+    const MAX_STAT = 255;
+    return (baseStat / MAX_STAT) * 100;
+}
+
 function closeOverlay() {
     overlayContainer.innerHTML = '';
 }

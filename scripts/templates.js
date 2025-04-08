@@ -32,11 +32,6 @@ function createPokemonCard(pokemon) {
     `;
 }
 
-function calculateStatPercentage(baseStat) {
-    const MAX_STAT = 255;
-    return (baseStat / MAX_STAT) * 100;
-}
-
 function createPokemonOverlay(pokemon) {
     const mainType = pokemon.types[0].type.name;
     const currentIndex = getCurrentPokemonIndex(pokemon.id);
