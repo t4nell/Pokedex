@@ -1,6 +1,8 @@
 const overlayContainer = document.getElementById('overlay-container');
+let isShiny = false;
 
 function showPokemonDetails(pokemon) {
+    isShiny = false;
     overlayContainer.innerHTML = createPokemonOverlay(pokemon);
 }
 
@@ -43,5 +45,16 @@ async function showNextPokemon(currentPokemonId) {
         await loadPokemonData();
         renderPokemon();
         showPokemonDetails(currentPokemon[0]);
+    }
+}
+
+function toggleShiny(pokemonId) {
+    const foundPokemon = currentPokemon.filter(pokemon => pokemon.id === pokemonId)[0];
+    const spriteElement = document.getElementById('pokemon_sprite');
+    isShiny = !isShiny;
+    if (isShiny) {
+        spriteElement.src = foundPokemon.sprites.front_shiny;
+    } else {
+        spriteElement.src = foundPokemon.sprites.front_default;
     }
 }

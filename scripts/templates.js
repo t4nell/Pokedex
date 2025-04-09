@@ -44,7 +44,11 @@ function createPokemonOverlay(pokemon) {
             </div>
             
             <div class="overlay_image ${mainType}">
-                <img src="${pokemon.sprites.front_default}" alt="${pokemon.name}">
+                <img id="pokemon_sprite" src="${pokemon.sprites.front_default}" alt="${pokemon.name}">
+            </div>
+            
+            <div class="overlay_toggle">
+                <button class="toggle_button" onclick="toggleShiny(${pokemon.id})">✨ Toggle Shiny</button>
             </div>
             
             <div class="overlay_types">

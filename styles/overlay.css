@@ -120,6 +120,25 @@
     cursor: not-allowed;
 }
 
+.overlay_toggle {
+    display: flex;
+    justify-content: center;
+    margin: 8px 0;
+}
+
+.toggle_button {
+    padding: 8px 16px;
+    background-color: var(--button-color);
+    color: var(--text-color);
+    border-radius: 8px;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.toggle_button:hover {
+    background-color: var(--button-hover-color);
+}
+
 @media (max-width: 470px) {
     .progress_bar {
         width: 150px;
