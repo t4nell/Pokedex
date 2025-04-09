@@ -26,7 +26,7 @@ async function performPokemonSearch(searchValue) {
         pokemon.name.startsWith(searchValue)
     );
     await loadFilteredPokemonDetails(filteredPokemon);
-    
+    clearFilterButton.style.display = 'block';
     if (currentPokemon.length === 0) {
         mainContent.innerHTML = `<p>Keine Pokemon mit "${searchValue}" gefunden</p>`;
     } else {
